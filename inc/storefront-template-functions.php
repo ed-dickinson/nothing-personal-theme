@@ -159,7 +159,7 @@ if ( ! function_exists( 'storefront_credit' ) ) {
 				<br />
 				<?php echo wp_kses_post( $links_output ); ?>
 			<?php } ?>
-		</div><!-- .site-info -->
+		</div>
 		<?php
 	}
 }

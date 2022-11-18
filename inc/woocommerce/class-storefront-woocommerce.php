@@ -26,7 +26,7 @@ if ( ! class_exists( 'Storefront_WooCommerce' ) ) :
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
 			add_filter( 'body_class', array( $this, 'woocommerce_body_class' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'woocommerce_scripts' ), 20 );
-			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
+			// add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 			add_filter( 'woocommerce_product_thumbnails_columns', array( $this, 'thumbnail_columns' ) );
 			add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumb_delimiter' ) );
 
@@ -164,9 +164,9 @@ if ( ! class_exists( 'Storefront_WooCommerce' ) ) :
 
 			wp_enqueue_script( 'storefront-handheld-footer-bar', get_template_directory_uri() . '/assets/js/footer' . $suffix . '.js', array(), $storefront_version, true );
 
-			if ( ! class_exists( 'Storefront_Sticky_Add_to_Cart' ) && is_product() ) {
-				wp_register_script( 'storefront-sticky-add-to-cart', get_template_directory_uri() . '/assets/js/sticky-add-to-cart' . $suffix . '.js', array(), $storefront_version, true );
-			}
+			// if ( ! class_exists( 'Storefront_Sticky_Add_to_Cart' ) && is_product() ) {
+			// 	wp_register_script( 'storefront-sticky-add-to-cart', get_template_directory_uri() . '/assets/js/sticky-add-to-cart' . $suffix . '.js', array(), $storefront_version, true );
+			// }
 		}
 
 		/**
