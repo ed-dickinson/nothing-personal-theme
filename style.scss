@@ -1,9 +1,9 @@
 /*!
 Theme Name:   Storefront NP
 Theme URI:    https://woocommerce.com/storefront/
-Author:       Automattic / Ed
+Author:       Ed
 Author URI:   https://woocommerce.com/
-Description:  Storefront is the perfect theme for your next WooCommerce project. Designed and developed by WooCommerce Core developers, it features a bespoke integration with WooCommerce itself plus many of the most popular customer facing WooCommerce extensions. There are several layout & color options to personalise your shop, multiple widget regions, a responsive design and much more. Developers will love its lean and extensible codebase making it a joy to customize and extend. Looking for a WooCommerce theme? Look no further!
+Description:  A theme based on Storefront for the Nothing Personal Magazine.
 Version:      4.1.3
 Tested up to: 6.0.0
 Requires PHP: 5.6.0
@@ -119,6 +119,13 @@ button {
 
 
 @media only screen and (min-width: 800px) {
+  // sort out logo on logged include
+  $logo-top: 64px;
+
+  body.logged-in #page header .site-branding {
+    top: 32px + $logo-top;
+  }
+
   #page {
     // max-width: 1200px;
     position: relative;
@@ -139,7 +146,7 @@ button {
     .site-branding {
       position: fixed;
       width: 48%;
-      top: 24px;
+      top: $logo-top;
       img {
         width: 100%;
         height: auto;
@@ -179,6 +186,14 @@ button {
   body.page-id-25 {
     ul#site-header-cart {
       top: -92px;
+    }
+    .entry-content {
+      p {
+        font-size: 1.2em;
+      }
+      h2 + p {
+        margin-top: 6em;
+      }
     }
   }
   body.single-product {
@@ -242,11 +257,27 @@ a.cart-contents::after {
 
 // INDIVIDUAL PAGES
 
+
+// sort out bottom spacing
+
+body.page-id-25, body.single-post {
+  #main {
+    article {
+      padding-bottom: 3em;
+    }
+  }
+}
+
+
 // home / about
 body.page-id-25 {
   #primary {
     #main {
       margin-top: 4em;
+
+      article {
+        padding-bottom: 4em;
+      }
     }
   }
 
@@ -304,12 +335,20 @@ body.term-subscribe {
     padding-left: 0;
     margin-top: 0;
 
+    &::after {
+      content: 'Subscriptions start with the most recent issue. If you would like your subscription to begin with an earlier issue, please add a note when you check out.';
+      color: black;
+      padding-top: 1em;
+      font-size: 1em;
+    }
+
     li.product.type-product {
       display: block !important;
       margin-right: 0 !important;
       width: 100% !important;
       text-align: left;
       margin-bottom: 3em;
+      font-size: 1em !important;
       h2 {
         display: inline-block;
       }
@@ -370,7 +409,7 @@ body.single-product {
 
   .woocommerce-product-gallery {
     margin-bottom: 0 !important;
-    width: 50% !important;
+    width: 45% !important;
     margin-right: 0 !important;
     float: left;
 
@@ -396,16 +435,11 @@ body.single-product {
         }
       }
       .woocommerce-product-gallery__image:nth-of-type(2) {
-        // position: relative;
-        // top: -100%;
-        // float: none;
         transform: translateY(-100%);
 
-        // width: 100% !important;
         .wp-post-image, img {
           width: 100% !important;
           height: auto;
-          // filter: translateX(-100%);
         }
         opacity: 0;
         transition: opacity 0.5s;
@@ -414,18 +448,11 @@ body.single-product {
         }
       }
 
-
     }
     ol.flex-control-nav.flex-control-thumbs {
       display: none;
     }
-    .woocommerce-product-gallery__wrapper {
-      // width: 100% !important;
 
-    }
-    .woocommerce-product-gallery__image {
-
-    }
   }
   .summary {
     margin-bottom: 0 !important;
@@ -473,7 +500,6 @@ body.single-product {
       font-size: 1em;
       width: 50%;
       width: 100%;
-      // left: 50% !important;
       position: relative;
       font-weight: normal !important;
       margin-top: 0;
@@ -498,12 +524,27 @@ body.single-product {
       li, li h5 {
         color: darkgrey;
       }
-      li h5 {
+      li h5, li h6, li h4 {
         font-style: italic;
+        font-weight: normal;
+        margin-bottom: -1.5em;
       }
     }
     h5 {
       margin: 0;
+    }
+  }
+}
+
+// issue non - MOBILE
+@media only screen and (min-width: 800px) {
+  body.single-product {
+    .woocommerce-product-gallery {
+      width: 45% !important;
+      margin-top: 2em !important;
+    }
+    h1.product_title {
+      margin-top: 0em;
     }
   }
 }
@@ -857,6 +898,83 @@ body.page-id-9 {
 // POST STUFF
 
 
+body.post-template-default {
+  #main {
+    // article.post.type-post:not(.tag-editorial) .entry-content > p:first-of-type {
+    //   position: relative;
+    //   top: -2.5em;
+    // }
+    article.post {
+      header.entry-header {
+        h1.entry-title {
+          text-transform: uppercase;
+          margin-bottom: 4em;
+          // margin-bottom: 0;
+        }
+      }
+      .entry-content {
+        h2 {
+          top: -3rem;
+          position: relative;
+          font-size: 1em;
+          font-weight: normal;
+          font-family: 'CaslonItalic';
+        }
+        p:first-of-type {
+          margin-top: 0em;
+        }
+        p {
+          line-height: 1.5;
+          a[target=_self] {
+            text-decoration: none;
+          }
+        }
+      }
+      ol {
+        padding-left: 1em;
+        & a {
+          text-decoration: none !important;
+        }
+      }
+    }
+  }
+}
+
+
+
+// WIX import
+
+//now for the doubters
+.XUUsC .xQ_iF img:not(.alignnone) {
+  display: none;
+}
+
+//
+// p.font_8 img.emoji {
+//   width: 183px;
+//   height: 57px;
+//   display: inline-block;
+//   font-size: 0;
+//   background-image: url('/wp-content/uploads/2022/11/short-dash.jpg');
+//   content: ' ' !important;
+//   &::after {
+//     content: 'hello';
+//     display: inline-block;
+//     width: 183px;
+//     height: 57px;
+//     background-image: url('/wp-content/uploads/2022/11/short-dash.jpg');
+//   }
+// }
+
+p.font_8 .wixGuard {
+  display: none;
+}
+
+p.font_8 {
+  white-space: pre-line;
+}
+
+
 
 
 
@@ -880,6 +998,36 @@ body.page-id-9 {
 .woocommerce-message .button, .woocommerce-info .button, .woocommerce-error .button, .woocommerce-noreviews .button, p.no-comments .button {
   line-height: 1 !important;
 }
+
+
+// side text-transform
+@media only screen and (min-width: 800px) {
+  .moving-side-text {
+    position: absolute;
+    width: 200px;
+    right: calc(100% + 20px);
+    margin-top: -0px;
+    font-size: 0.9rem;
+    text-align: justify;
+  }
+
+}
+
+@media only screen and (max-width: 799px) {
+  .moving-side-text::after {
+    content: '';
+    margin: 1.5em 0 2em;
+    width: 100%;
+    display: block;
+    height:0px;
+    border-top: 1px solid black;
+
+  }
+
+}
+
+
+
 
 
 // // Bourbon
