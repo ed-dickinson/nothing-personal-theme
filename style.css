@@ -573,7 +573,7 @@ body.page-id-9 #order_review thead tr th:first-of-type, body.page-id-9 #order_re
     display: none;
   }
   header nav.main-navigation.toggled .primary-navigation {
-    top: 100%;
+    transform: translateY(100%);
   }
   header nav.main-navigation {
     position: absolute;
@@ -595,7 +595,7 @@ body.page-id-9 #order_review thead tr th:first-of-type, body.page-id-9 #order_re
     text-align: center;
     width: 100%;
     top: 0%;
-    transition: top 0.5s;
+    transition: transform 0.5s;
     left: 0;
     position: relative;
   }
