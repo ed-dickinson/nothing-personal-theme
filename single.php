@@ -25,6 +25,19 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+<script>
+
+// remove hyperlinks
+document.querySelectorAll('a[data-anchor-comp-id*="comp"]').forEach(link => {
+
+	link.removeAttribute("href")
+	link.style.cursor = 'default'
+
+	link.addEventListener('click', ()=> {
+		event.preventDefault()
+	})
+})
+</script>
 
 <?php
 do_action( 'storefront_sidebar' );

@@ -90,9 +90,6 @@ button {
 #page header nav#site-navigation ul#menu-menu {
   font-size: 1.5em;
 }
-#page header nav#site-navigation ul#menu-menu li {
-  margin: 0.5em 0;
-}
 #page header nav#site-navigation ul#menu-menu li a:hover {
   opacity: 0.6;
 }
@@ -119,13 +116,13 @@ button {
   }
   header .site-branding {
     position: fixed;
-    width: 48%;
+    width: 40%;
     top: 64px;
   }
   header .site-branding img {
     width: 100%;
     height: auto;
-    max-width: 576px;
+    max-width: 550px;
   }
   header .site-branding:hover {
     opacity: 0.8;
@@ -134,6 +131,9 @@ button {
     position: fixed;
     bottom: 0;
     margin-left: 1.5em;
+  }
+  header nav#site-navigation .primary-navigation li {
+    margin: 0.75em 0;
   }
   header nav#site-navigation button {
     display: none;
@@ -200,9 +200,13 @@ body.page-id-25 #main article, body.single-post #main article {
 
 body.page-id-25 #primary #main {
   margin-top: 4em;
+  text-align: justify;
 }
 body.page-id-25 #primary #main article {
   padding-bottom: 4em;
+}
+body.page-id-25 #site-header-cart {
+  display: none;
 }
 
 body.page-id-34 p + h3, body.page-id-34 p + h4, body.page-id-34 p + h5, body.page-id-34 p + h6 {
@@ -228,6 +232,17 @@ body.term-issues ul.products li > a > img {
   width: 100%;
   height: auto;
 }
+body.term-issues ul.products img.front-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+body.term-issues ul.products img.front-cover:hover {
+  opacity: 1;
+}
 body.term-issues section.related.products {
   display: none;
 }
@@ -248,7 +263,8 @@ body.term-subscribe ul.products {
   margin-top: 0;
 }
 body.term-subscribe ul.products::after {
-  content: "Subscriptions start with the most recent issue. If you would like your subscription to begin with an earlier issue, please add a note when you check out.";
+  content: "Subscriptions start with the most recent issue. If you would like your subscription to begin with an earlier issue, please add a note when you check out.\a\aPlease note subscription prices include UK postage. Please contact us to arrange overseas subscriptions.";
+  white-space: pre-wrap;
   color: black;
   padding-top: 1em;
   font-size: 1em;
@@ -288,10 +304,10 @@ body.term-subscribe ul.products li.product.type-product::before {
   color: black;
 }
 body.term-subscribe ul.products li:first-of-type::before {
-  content: "One year (two issues) Nothing Personal subscription for £18.";
+  content: "One year (two issues) Nothing Personal subscription for £23.";
 }
 body.term-subscribe ul.products li:nth-of-type(2)::before {
-  content: "Two year (four issues) Nothing Personal subscription for £34.";
+  content: "Two year (four issues) Nothing Personal subscription for £44.";
 }
 
 body.single-product .woocommerce-tabs.wc-tabs-wrapper {
@@ -302,7 +318,7 @@ body.single-product .woocommerce-tabs.wc-tabs-wrapper ul.wc-tabs {
 }
 body.single-product .woocommerce-product-gallery {
   margin-bottom: 0 !important;
-  width: 45% !important;
+  width: 50% !important;
   margin-right: 0 !important;
   float: left;
 }
@@ -375,6 +391,7 @@ body.single-product section.related.products {
 }
 body.single-product #tab-description {
   width: 100%;
+  text-align: justify;
 }
 body.single-product #tab-description h2 {
   display: none;
@@ -417,19 +434,11 @@ body.single-product #tab-description h5 {
   margin: 0;
 }
 
-@media only screen and (min-width: 800px) {
-  body.single-product .woocommerce-product-gallery {
-    width: 45% !important;
-    margin-top: 2em !important;
-  }
-  body.single-product h1.product_title {
-    margin-top: 0em;
-  }
-}
 div.widget.woocommerce.widget_shopping_cart {
   display: none !important;
 }
 
+/* CART */
 ul#site-header-cart {
   display: inline-block;
   position: absolute;
@@ -445,6 +454,9 @@ ul#site-header-cart li a.cart-contents {
 }
 ul#site-header-cart li a.cart-contents:hover {
   color: black;
+}
+ul#site-header-cart li a.cart-contents .count {
+  opacity: 1 !important;
 }
 
 /*
@@ -565,6 +577,7 @@ body.page-id-9 #order_review thead tr th:first-of-type, body.page-id-9 #order_re
   }
   #page {
     font-size: 16px;
+    overflow-x: hidden;
   }
   #page #content {
     padding: 1em;
@@ -699,11 +712,31 @@ body.post-template-default #main article.post .entry-content p {
 body.post-template-default #main article.post .entry-content p a[target=_self] {
   text-decoration: none;
 }
-body.post-template-default #main article.post ol {
-  padding-left: 1em;
+body.post-template-default #main article.post .entry-content p.font_7 span {
+  font-family: sans-serif;
 }
-body.post-template-default #main article.post ol a {
+body.post-template-default #main article.post .entry-content ol {
+  max-width: 66%;
+  padding-left: 1em;
+  color: black;
+}
+body.post-template-default #main article.post .entry-content ol a {
   text-decoration: none !important;
+}
+body.post-template-default #main article.post .entry-content .post-notes {
+  width: 66%;
+}
+body.post-template-default #main article.post .entry-content .color_14, body.post-template-default #main article.post .entry-content p[style*="text-align: right;"], body.post-template-default #main article.post .entry-content p.has-text-align-right {
+  margin-top: 3em;
+}
+body.post-template-default #main article.post .entry-content .color_14 a, body.post-template-default #main article.post .entry-content p[style*="text-align: right;"] a, body.post-template-default #main article.post .entry-content p.has-text-align-right a {
+  color: #929292 !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+}
+body.post-template-default #main article.post .entry-content span[style*=_italic] em, body.post-template-default #main article.post .entry-content span[style*=_italic] i {
+  font-family: "Caslon" !important;
+  font-style: normal !important;
 }
 
 .XUUsC .xQ_iF img:not(.alignnone) {
@@ -739,13 +772,22 @@ p.font_8 {
   line-height: 1 !important;
 }
 
+.woocommerce-billing-fields__field-wrapper label {
+  margin-bottom: 0.25em;
+}
+
+.moving-side-text {
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
+
 @media only screen and (min-width: 800px) {
   .moving-side-text {
     position: absolute;
     width: 200px;
     right: calc(100% + 20px);
     margin-top: 0px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: justify;
   }
 }

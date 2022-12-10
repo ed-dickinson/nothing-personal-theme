@@ -104,7 +104,7 @@ button {
       ul#menu-menu {
         font-size: 1.5em;
         li {
-          margin: 0.5em 0;
+          // margin: 0.5em 0;
           a:hover {
             opacity: 0.6;
           }
@@ -145,12 +145,13 @@ button {
     position: absolute;
     .site-branding {
       position: fixed;
-      width: 48%;
+      width: 40%;
+
       top: $logo-top;
       img {
         width: 100%;
         height: auto;
-        max-width: 576px;
+        max-width: 550px;
       }
       &:hover {
         opacity: 0.8;
@@ -161,6 +162,11 @@ button {
       position: fixed;
       bottom: 0;
       margin-left: 1.5em;
+      .primary-navigation {
+        li {
+          margin: 0.75em 0;
+        }
+      }
       button {
         display: none;
       }
@@ -274,11 +280,15 @@ body.page-id-25 {
   #primary {
     #main {
       margin-top: 4em;
+      text-align: justify;
 
       article {
         padding-bottom: 4em;
       }
     }
+  }
+  #site-header-cart {
+    display: none;
   }
 
 }
@@ -312,6 +322,17 @@ body.term-issues {
       width: 100%;
       height: auto;
     }
+    img.front-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
   section.related.products {
     display: none;
@@ -336,7 +357,8 @@ body.term-subscribe {
     margin-top: 0;
 
     &::after {
-      content: 'Subscriptions start with the most recent issue. If you would like your subscription to begin with an earlier issue, please add a note when you check out.';
+      content: "Subscriptions start with the most recent issue. If you would like your subscription to begin with an earlier issue, please add a note when you check out.\a\aPlease note subscription prices include UK postage. Please contact us to arrange overseas subscriptions.";
+      white-space: pre-wrap;
       color: black;
       padding-top: 1em;
       font-size: 1em;
@@ -378,13 +400,13 @@ body.term-subscribe {
     }
     li:first-of-type {
       &::before {
-        content: 'One year (two issues) Nothing Personal subscription for £18.';
+        content: 'One year (two issues) Nothing Personal subscription for £23.';
       }
 
     }
     li:nth-of-type(2) {
       &::before {
-        content: 'Two year (four issues) Nothing Personal subscription for £34.';
+        content: 'Two year (four issues) Nothing Personal subscription for £44.';
       }
 
     }
@@ -409,7 +431,7 @@ body.single-product {
 
   .woocommerce-product-gallery {
     margin-bottom: 0 !important;
-    width: 45% !important;
+    width: 50% !important;
     margin-right: 0 !important;
     float: left;
 
@@ -493,6 +515,7 @@ body.single-product {
   }
   #tab-description {
     width: 100%;
+    text-align: justify;
     h2 {
       display: none;
     }
@@ -536,23 +559,12 @@ body.single-product {
   }
 }
 
-// issue non - MOBILE
-@media only screen and (min-width: 800px) {
-  body.single-product {
-    .woocommerce-product-gallery {
-      width: 45% !important;
-      margin-top: 2em !important;
-    }
-    h1.product_title {
-      margin-top: 0em;
-    }
-  }
-}
-
 
 div.widget.woocommerce.widget_shopping_cart {
   display: none !important;
 }
+
+/* CART */
 ul#site-header-cart {
   display: inline-block;
   position: absolute;
@@ -566,6 +578,9 @@ ul#site-header-cart {
       // color: black;
       &:hover {
         color: black;
+      }
+      .count {
+        opacity: 1 !important;
       }
     }
   }
@@ -672,6 +687,7 @@ body.post-template-default {
 }
 
 
+
 // CHECKKOUT
 
 body.page-id-9 {
@@ -730,6 +746,9 @@ body.page-id-9 {
   }
   #page {
     font-size: 16px;
+    // stops weird side scroll hangover
+    overflow-x: hidden;
+
     #content {
       padding: 1em;
     }
@@ -745,7 +764,6 @@ body.page-id-9 {
       .primary-navigation {
         // top: 100%;
         transform: translateY(100%);
-        
       }
     }
     nav.main-navigation {
@@ -932,13 +950,41 @@ body.post-template-default {
             text-decoration: none;
           }
         }
-      }
-      ol {
-        padding-left: 1em;
-        & a {
-          text-decoration: none !important;
+        p.font_7 span {
+          font-family: sans-serif;
+        }
+        ol {
+          max-width: 66%;
+          padding-left: 1em;
+          color: black;
+          li {
+            &::before {
+              // color: red !important;
+            }
+          }
+          & a {
+            text-decoration: none !important;
+          }
+        }
+        .post-notes {
+          width: 66%;
+        }
+        // back to issue link
+        .color_14 , p[style*="text-align: right;"] , p.has-text-align-right  {
+          margin-top: 3em;
+          a {
+            color: #929292 !important;
+            font-size: 1rem !important;
+            text-decoration: none !important;
+
+          }
+        }
+        span[style*="_italic"] em, span[style*="_italic"] i {
+          font-family: 'Caslon' !important;
+          font-style: normal !important;
         }
       }
+
     }
   }
 }
@@ -1002,6 +1048,15 @@ p.font_8 {
   line-height: 1 !important;
 }
 
+.woocommerce-billing-fields__field-wrapper label {
+	margin-bottom: 0.25em;
+}
+
+
+.moving-side-text {
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
 
 // side text-transform
 @media only screen and (min-width: 800px) {
@@ -1010,7 +1065,7 @@ p.font_8 {
     width: 200px;
     right: calc(100% + 20px);
     margin-top: -0px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: justify;
   }
 

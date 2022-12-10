@@ -93,7 +93,7 @@ if ( ! function_exists( 'storefront_cart_link' ) ) {
 
 				<?php
 				if (WC()->cart->get_cart_contents_count() > -1) {
-					/*echo wp_kses_post( WC()->cart->get_cart_subtotal() );*/ ?> <span class="count">Cart <?php echo wp_kses_data( sprintf( _n( '(%d)', '(%d)', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) );
+					/*echo wp_kses_post( WC()->cart->get_cart_subtotal() );*/ ?> <span class="count">Basket <?php echo wp_kses_data( sprintf( _n( '(%d)', '(%d)', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) );
 				}
 				?></span>
 			</a>
